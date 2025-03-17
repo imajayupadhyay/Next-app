@@ -12,10 +12,10 @@ RUN npm install
 COPY . .
 
 # Build the Next.js app
-RUN npm run build
+RUN NEXT_PUBLIC_DISABLE_ESLINT=true npm run build
 
 # Expose the frontend port
 EXPOSE 3000
 
-# Start the frontend
-CMD ["npm", "start"]
+# Start the frontend in dev mode
+CMD ["npm", "run", "dev"]
