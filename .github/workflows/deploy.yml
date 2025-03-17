@@ -35,9 +35,11 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
 
       # 5️⃣ Build & Push Frontend Docker Image
+      
       - name: Build and Push Frontend Docker Image
         run: |
           docker build --build-arg NEXT_PUBLIC_DISABLE_ESLINT=true \
+            --build-arg CI=false \
             -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest \
             -f frontend-main/Dockerfile ./frontend-main
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
