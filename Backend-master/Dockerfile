@@ -21,9 +21,6 @@ ENV TOKEN_SECRET=$TOKEN_SECRET
 RUN npx prisma generate
 RUN npx prisma migrate deploy
 
-# Build TypeScript code
-RUN npm run build
-
 # Expose the application port
 EXPOSE 4000
 
